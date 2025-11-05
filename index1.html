@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Under Maintenance</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0a74da;
+            --primary-light: #3d8fe0;
+            --secondary: #222;
+            --accent: #00aced;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --text: #333;
+            --text-light: #666;
+            --white: #fff;
+            --bg-gradient: linear-gradient(145deg, #f5f7fa 0%, #e4e8ed 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .maintenance-container {
+            max-width: 800px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .maintenance-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+
+        /* INI BUAT LOGO LU (PENTING!) */
+        .logo {
+            max-height: 180px; /* Atur tinggi logo di sini */
+            margin-bottom: 30px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        /* INI JUDUL YANG UDAH DIREVISI */
+        h1 {
+            font-size: 2.2rem; /* Ukuran font judul */
+            color: var(--secondary);
+            margin-bottom: 20px;
+            position: relative;
+            display: block; /* Bikin jadi block */
+            line-height: 1.4; /* Jarak baris kalo 2 baris */
+        }
+        
+        /* Ini buat nampilin nama domain di dalem <h1> */
+        h1 span {
+            display: block; /* Bikin domainnya di baris baru */
+            font-size: 1.8rem; /* Ukuran font domain */
+            color: var(--text-light); /* Warna domain abu-abu (biar mirip contoh) */
+            font-weight: 600;
+        }
+        
+        /* Garis bawah di bawah H1 (opsional, tapi mirip contoh) */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .maintenance-icon {
+            font-size: 5rem;
+            color: var(--primary);
+            margin: 40px 0 30px 0; /* Tambah jarak atas */
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        p.description {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: #eee;
+            border-radius: 5px;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 65%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 5px;
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { width: 65%; }
+            50% { width: 70%; }
+            100% { width: 65%; }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            color: var(--primary);
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            margin-top: 50px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 30px 20px;
+            }
+            h1 { font-size: 2rem; }
+            h1 span { font-size: 1.5rem; }
+            p.description { font-size: 1rem; }
+            .maintenance-icon { font-size: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-container">
+
+        <img src="https://cdn.dribbble.com/userupload/22068510/file/original-4ed5b4b51085194be25fd26108edb7e2.gif" alt="Maintenance Logo" class="logo">
+        
+        <h1>
+            Under Maintenance For:
+            <span id="domain-name-display">Loading...</span>
+        </h1>
+        
+        <div class="maintenance-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+        </div>
+
+        <p class="description">
+            We're currently performing scheduled maintenance to improve your experience.
+            The website will be back online shortly. Thank you for your patience.
+        </p>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <p>
+            Estimated time remaining: <strong>30 minutes</strong><br>
+            Last updated: <strong id="update-time">Loading...</strong>
+        </p>
+
+        <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 <a href="#" target="_blank" id="footer-domain-display">YourWebsite.com</a>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- SKRIP UPDATE WAKTU (Aman) ---
+            function updateTime() {
+                const now = new Date();
+                const options = {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true,
+                    month: 'short',
+                    day: 'numeric'
+                };
+                document.getElementById('update-time').textContent = now.toLocaleTimeString('en-US', options);
+            }
+            updateTime();
+            setInterval(updateTime, 60000);
+
+            
+            // --- SKRIP NAMPILIN DOMAIN OTOMATIS (Aman) ---
+            const currentDomain = window.location.hostname;
+            if (currentDomain) {
+                document.getElementById('domain-name-display').textContent = currentDomain;
+                const footerLink = document.getElementById('footer-domain-display');
+                footerLink.textContent = currentDomain;
+                footerLink.href = `https://${currentDomain}`;
+            } else {
+                document.getElementById('domain-name-display').textContent = 'YourWebsite.com';
+            }
+        });
+    </script>
+    
+    </body>
+</html>
